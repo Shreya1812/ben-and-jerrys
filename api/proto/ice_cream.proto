@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package icecream;
+
+option go_package =  "icecream;icecream_pb";
+
+message IceCream {
+     string ProductId = 1;
+     string Name = 2;
+     string ImageClosed = 3;
+     string ImageOpen = 4;
+     string Description = 5;
+     string Story = 6;
+     repeated string SourcingValues = 7;
+     repeated string Ingredients = 8;
+	 string AllergyInfo = 9;
+	 string DietaryCertifications = 10;
+}
+
+message CreateRequest {
+    IceCream ice_cream = 1;
+}
+
+message CreateResponse {
+    IceCream ice_cream = 1;
+}
+
+message UpdateRequest {
+    IceCream ice_cream = 1;
+}
+
+message UpdateResponse {
+    IceCream ice_cream = 1;
+}
+
+message DeleteRequest {
+    string Id = 1;
+}
+
+message DeleteResponse {
+    IceCream ice_cream = 1;
+}
+
+message GetByIdRequest {
+    string Id = 1;
+}
+
+message GetByIdResponse {
+    IceCream ice_cream = 1;
+}
+
+service IceCreamApi{
+    rpc Create(CreateRequest) returns (CreateResponse) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+    rpc GetById(GetByIdRequest) returns (GetByIdResponse) {}
+}

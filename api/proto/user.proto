@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package user;
+
+option go_package =  "user;user_pb";
+
+message User {
+    string Email = 1;
+    string Password = 2;
+}
+
+message CreateRequest {
+    User User = 1;
+}
+
+message CreateResponse {
+}
+
+message UpdateRequest {
+    User User = 1;
+}
+
+message UpdateResponse {
+}
+
+message DeleteRequest {
+    string Email = 1;
+}
+
+message DeleteResponse {
+}
+
+
+service UserApi{
+    rpc Create(CreateRequest) returns (CreateResponse) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}
