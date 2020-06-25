@@ -2,48 +2,49 @@ package db
 
 import (
 	"context"
-	"fmt"
 	"github.com/Shreya1812/ben-and-jerrys/internal/apps/icecream/service/internal/internal/data"
+	"github.com/Shreya1812/ben-and-jerrys/internal/commons"
 	"github.com/Shreya1812/ben-and-jerrys/internal/configs"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"log"
+	"golang.org/x/xerrors"
 )
 
 type iceCreamDBImpl struct {
-	client *mongo.Client
-	db     *mongo.Database
+	db *mongo.Database
 }
 
 const collectionName = "icecream"
 
-func New(config *configs.MongoDBConfig) IceCreamDB {
-	clientOptions := options.Client().ApplyURI(fmt.Sprintf("mongodb://%v:%v", config.Host, config.Port))
-	client, err := mongo.NewClient(clientOptions)
+func New(config *configs.MongoDBConfig) (IceCreamDB, error) {
+	db, err := commons.GetDatabase(config)
 
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-	if err := client.Connect(context.TODO()); err != nil {
-		log.Fatalf("Cannot connect to mongodb: %v", err)
-	}
-
-	db := client.Database(config.DatabaseName)
 
 	return &iceCreamDBImpl{
-		client: client,
-		db:     db,
-	}
+		db: db,
+	}, nil
 }
 
 func (i *iceCreamDBImpl) Create(ctx context.Context, d *data.IceCream) (*data.IceCream, error) {
 	c := i.db.Collection(collectionName)
 
-	if _, err := c.InsertOne(ctx, d); err != nil {
-		return nil, err // Insertion Error
+	_, err := i.GetById(ctx, d.ProductId)
+
+	if err != nil {
+		if xerrors.Is(err, commons.ErrItemNotFound) {
+			if _, err := c.InsertOne(ctx, d); err != nil {
+				return nil, err // Insertion Error
+			}
+			return d, nil
+		}
+		return nil, err
 	}
-	return d, nil
+
+	return nil, commons.ErrItemAlreadyExists
 }
 
 func (i *iceCreamDBImpl) Update(ctx context.Context, d *data.IceCream) (*data.IceCream, error) {
@@ -53,12 +54,11 @@ func (i *iceCreamDBImpl) Update(ctx context.Context, d *data.IceCream) (*data.Ic
 	opts := options.FindOneAndReplace().SetReturnDocument(options.After)
 	result := &data.IceCream{}
 
-	//res, err := c.UpdateOne(ctx, filter, d)
 	err := c.FindOneAndReplace(ctx, filter, d, opts).Decode(result)
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			return nil, err // Item Not Found
+			return nil, commons.ErrItemNotFound
 		}
 		return nil, err // Database error
 	}
@@ -76,7 +76,7 @@ func (i *iceCreamDBImpl) Delete(ctx context.Context, pId string) (*data.IceCream
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			return nil, err // Item Not Found
+			return nil, commons.ErrItemNotFound
 		}
 		return nil, err // Database error
 	}
@@ -93,7 +93,7 @@ func (i *iceCreamDBImpl) GetById(ctx context.Context, pId string) (*data.IceCrea
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			return nil, err // Item Not Found
+			return nil, commons.ErrItemNotFound
 		}
 		return nil, err // Database error
 	}
@@ -102,8 +102,5 @@ func (i *iceCreamDBImpl) GetById(ctx context.Context, pId string) (*data.IceCrea
 }
 
 func (i *iceCreamDBImpl) Close() error {
-	if i.client != nil {
-		return i.client.Disconnect(context.TODO())
-	}
-	return nil
+	return commons.Disconnect(i.db)
 }

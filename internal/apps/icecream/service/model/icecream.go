@@ -1,14 +1,22 @@
 package model
 
+import (
+	"gopkg.in/go-playground/validator.v9"
+)
+
 type IceCream struct {
-	ProductId             string
-	Name                  string
-	ImageClosed           string
-	ImageOpen             string
-	Description           string
-	Story                 string
+	ProductId             string `json:"productId" validate:"required,number"`
+	Name                  string `json:"name" validate:"required"`
+	ImageClosed           string `json:"imageClosed" validate:"required"`
+	ImageOpen             string `json:"imageOpen" validate:"required"`
+	Description           string `json:"description" validate:"required"`
+	Story                 string `json:"story" validate:"required"`
 	SourcingValues        []string
 	Ingredients           []string
 	AllergyInfo           string
 	DietaryCertifications string
+}
+
+func GetIceCreamValidator() *validator.Validate {
+	return validator.New()
 }

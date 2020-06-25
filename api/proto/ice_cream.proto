@@ -49,9 +49,24 @@ message GetByIdResponse {
     IceCream ice_cream = 1;
 }
 
+message PaginationContext {
+    string last_id = 1;
+}
+
+message ListRequest {
+    string pagination_context = 1;
+    int32 limit = 2;
+    int32 skip = 3;
+}
+
+message ListResponse {
+    repeated IceCream ice_creams = 1;
+}
+
 service IceCreamApi{
     rpc Create(CreateRequest) returns (CreateResponse) {}
     rpc Update(UpdateRequest) returns (UpdateResponse) {}
     rpc Delete(DeleteRequest) returns (DeleteResponse) {}
     rpc GetById(GetByIdRequest) returns (GetByIdResponse) {}
+    rpc GetList(ListRequest) returns (ListResponse) {}
 }

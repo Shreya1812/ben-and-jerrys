@@ -12,10 +12,15 @@ type iceCreamDataServiceImpl struct {
 	db db.IceCreamDB
 }
 
-func New(config *config.IceCreamConfig) IceCreamDataService {
-	return &iceCreamDataServiceImpl{
-		db: db.New(config.MongoDBConfig),
+func New(config *config.IceCreamConfig) (IceCreamDataService, error) {
+	database, err := db.New(config.MongoDBConfig)
+
+	if err != nil {
+		return nil, err
 	}
+	return &iceCreamDataServiceImpl{
+		db: database,
+	}, nil
 }
 
 func (i *iceCreamDataServiceImpl) Create(ctx context.Context, m *model.IceCream) (*model.IceCream, error) {

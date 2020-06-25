@@ -12,10 +12,15 @@ type userDataServiceImpl struct {
 	db db.UserDB
 }
 
-func New(config *config.UserConfig) UserDataService {
-	return &userDataServiceImpl{
-		db: db.New(config.MongoDBConfig),
+func New(config *config.UserConfig) (UserDataService, error) {
+	database, err := db.New(config.MongoDBConfig)
+
+	if err != nil {
+		return nil, err
 	}
+	return &userDataServiceImpl{
+		db: database,
+	}, nil
 }
 
 func (u userDataServiceImpl) Create(ctx context.Context, m *model.User) error {

@@ -3,21 +3,36 @@ package convertor
 import (
 	"github.com/Shreya1812/ben-and-jerrys/internal/apps/icecream/service/model"
 	"github.com/Shreya1812/ben-and-jerrys/internal/proto/icecream"
+	"strings"
 )
 
 func PbToModel(pb *icecream_pb.IceCream) *model.IceCream {
 	return &model.IceCream{
-		ProductId:             pb.ProductId,
-		Name:                  pb.Name,
-		ImageClosed:           pb.ImageClosed,
-		ImageOpen:             pb.ImageOpen,
-		Description:           pb.Description,
-		Story:                 pb.Story,
-		SourcingValues:        pb.SourcingValues,
-		Ingredients:           pb.Ingredients,
-		AllergyInfo:           pb.AllergyInfo,
-		DietaryCertifications: pb.DietaryCertifications,
+		ProductId:             strings.Trim(pb.ProductId, " "),
+		Name:                  strings.Trim(pb.Name, " "),
+		ImageClosed:           strings.Trim(pb.ImageClosed, " "),
+		ImageOpen:             strings.Trim(pb.ImageOpen, " "),
+		Description:           strings.Trim(pb.Description, " "),
+		Story:                 strings.Trim(pb.Story, " "),
+		SourcingValues:        trimStringSlices(pb.SourcingValues),
+		Ingredients:           trimStringSlices(pb.Ingredients),
+		AllergyInfo:           strings.Trim(pb.AllergyInfo, " "),
+		DietaryCertifications: strings.Trim(pb.DietaryCertifications, " "),
 	}
+}
+
+func trimStringSlices(s []string) []string {
+	var res = make([]string, 0, len(s))
+
+	for _, v := range s {
+		trimmed := strings.Trim(v, " ")
+
+		if len(trimmed) > 0 {
+			res = append(res, trimmed)
+		}
+	}
+
+	return res
 }
 
 func ModelToPb(model *model.IceCream) *icecream_pb.IceCream {
