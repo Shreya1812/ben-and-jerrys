@@ -43,38 +43,41 @@ Controller ──→ Service ──→ DataService ──├──→ Cache
                                          └──→ SearchEngine          
 ```
 - DB can be used write to a persistant storage.
-
 - Cache can be used to cache data for faster retrieval.
-
 - SearchEngine can be used to filter and search data.
-
 - For this project only DB has been used.
-
 - Cache and SearchEngine can be integrated as and when required.
 
-
 - The `internal` directory structure has been utilized to abstract and hide the DataServices from other Services.
-
 - The DataService can only be accessed by its respective service; for example only UserService can access the UserDataService.
-
 - This is done to avoid direct access of the DataServices by any other Service.
-
 - If any sub-system needs data from any other sub-system it must use its Service.
-
 - DB, Cache and SearchEngine are only accessible to the respective DataService.
-
 - This is done to avoid direct access of DB, Cache or SearchEngine by the Service.
 
-
 - All .proto files are available in `api/proto`.
-
 - To .pb.go files are generated using the script at `/tool/generate-internal-proto.sh`.
 
 
-## Implementation Details
-
-**Database**
+## Database
 - MongoDB is used for back-end. 
 - The ice-cream data is going to be read heavy.
 - Create and update operations on ice-cream data will be very rare.  
+
+## Running the project
+- Docker container has been created to ease the process.
+- Currently, a new MongoDB instance is spawned when the container is run.
+- Ideally we should have MongoDB running as a separate instance; but this should suffice for the demonstration.
+
+- To start the server run the following command:
+```bash
+. ./tools/docker-build-and-run.sh      
+```
+
+- Visit http://127.0.0.1:9999/ to access gRPC UI
+
+- To stop the server run the following command:
+```bash
+. ./tools/docker-stop.sh     
+```
 
