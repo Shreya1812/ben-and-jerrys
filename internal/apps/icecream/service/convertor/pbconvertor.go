@@ -21,20 +21,6 @@ func PbToModel(pb *icecream_pb.IceCream) *model.IceCream {
 	}
 }
 
-func trimStringSlices(s []string) []string {
-	var res = make([]string, 0, len(s))
-
-	for _, v := range s {
-		trimmed := strings.Trim(v, " ")
-
-		if len(trimmed) > 0 {
-			res = append(res, trimmed)
-		}
-	}
-
-	return res
-}
-
 func ModelToPb(model *model.IceCream) *icecream_pb.IceCream {
 	return &icecream_pb.IceCream{
 		ProductId:             model.ProductId,
@@ -48,4 +34,28 @@ func ModelToPb(model *model.IceCream) *icecream_pb.IceCream {
 		AllergyInfo:           model.AllergyInfo,
 		DietaryCertifications: model.DietaryCertifications,
 	}
+}
+
+func ListModelToListPb(models []*model.IceCream) []*icecream_pb.IceCream {
+	result := make([]*icecream_pb.IceCream, 0, len(models))
+
+	for _, ic := range models {
+		m := ModelToPb(ic)
+		result = append(result, m)
+	}
+	return result
+}
+
+func trimStringSlices(s []string) []string {
+	var res = make([]string, 0, len(s))
+
+	for _, v := range s {
+		trimmed := strings.Trim(v, " ")
+
+		if len(trimmed) > 0 {
+			res = append(res, trimmed)
+		}
+	}
+
+	return res
 }

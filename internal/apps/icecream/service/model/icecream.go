@@ -17,6 +17,16 @@ type IceCream struct {
 	DietaryCertifications string
 }
 
+type IceCreamSearchOptions struct {
+	LastId string
+	Limit  int64
+}
+
+type IceCreamListResult struct {
+	IceCreams []*IceCream
+	LastId    string
+}
+
 func GetIceCreamValidator() *validator.Validate {
 	return validator.New()
 }

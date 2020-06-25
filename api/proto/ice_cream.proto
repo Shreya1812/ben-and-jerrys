@@ -33,19 +33,19 @@ message UpdateResponse {
     IceCream ice_cream = 1;
 }
 
-message DeleteRequest {
-    string Id = 1;
+message DeleteByProductIdRequest {
+    string ProductId = 1;
 }
 
-message DeleteResponse {
+message DeleteByProductIdResponse {
     IceCream ice_cream = 1;
 }
 
-message GetByIdRequest {
-    string Id = 1;
+message GetByProductIdRequest {
+    string ProductId = 1;
 }
 
-message GetByIdResponse {
+message GetByProductIdResponse {
     IceCream ice_cream = 1;
 }
 
@@ -55,18 +55,18 @@ message PaginationContext {
 
 message ListRequest {
     string pagination_context = 1;
-    int32 limit = 2;
-    int32 skip = 3;
+    int64 limit = 2;
 }
 
 message ListResponse {
     repeated IceCream ice_creams = 1;
+    string pagination_context = 2;
 }
 
 service IceCreamApi{
     rpc Create(CreateRequest) returns (CreateResponse) {}
     rpc Update(UpdateRequest) returns (UpdateResponse) {}
-    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
-    rpc GetById(GetByIdRequest) returns (GetByIdResponse) {}
+    rpc DeleteByProductId(DeleteByProductIdRequest) returns (DeleteByProductIdResponse) {}
+    rpc GetByProductId(GetByProductIdRequest) returns (GetByProductIdResponse) {}
     rpc GetList(ListRequest) returns (ListResponse) {}
 }

@@ -50,12 +50,16 @@ func (i *iceCreamServiceImpl) UpdateIceCream(ctx context.Context, m *model.IceCr
 	return i.ds.Update(ctx, m)
 }
 
-func (i *iceCreamServiceImpl) DeleteIceCreamById(ctx context.Context, pId string) (*model.IceCream, error) {
-	return i.ds.DeleteById(ctx, pId)
+func (i *iceCreamServiceImpl) DeleteIceCreamByProductId(ctx context.Context, pId string) (*model.IceCream, error) {
+	return i.ds.DeleteByProductId(ctx, pId)
 }
 
-func (i *iceCreamServiceImpl) GetIceCreamById(ctx context.Context, pId string) (*model.IceCream, error) {
-	return i.ds.GetById(ctx, pId)
+func (i *iceCreamServiceImpl) GetIceCreamByProductId(ctx context.Context, pId string) (*model.IceCream, error) {
+	return i.ds.GetByProductId(ctx, pId)
+}
+
+func (i *iceCreamServiceImpl) GetIceCreamList(ctx context.Context, searchOptions *model.IceCreamSearchOptions) (*model.IceCreamListResult, error) {
+	return i.ds.GetList(ctx, searchOptions)
 }
 
 func (i *iceCreamServiceImpl) Close() error {

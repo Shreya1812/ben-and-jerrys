@@ -6,6 +6,7 @@ import (
 	icecream_pb "github.com/Shreya1812/ben-and-jerrys/internal/proto/icecream"
 	user_pb "github.com/Shreya1812/ben-and-jerrys/internal/proto/user"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 	"os"
@@ -14,7 +15,7 @@ import (
 
 func main() {
 
-	lis, err := net.Listen("tcp", "0.0.0.0:50051")
+	lis, err := net.Listen("tcp", "0.0.0.0:9000")
 
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
@@ -27,17 +28,18 @@ func main() {
 	}
 
 	s := grpc.NewServer(grpc.UnaryInterceptor(cf.GetAuthInterceptor().Unary()))
+	reflection.Register(s)
 
 	icecream_pb.RegisterIceCreamApiServer(s, cf.GetIceCreamController())
 	user_pb.RegisterUserApiServer(s, cf.GetUserController())
 	auth_pb.RegisterAuthApiServer(s, cf.GetAuthController())
 
 	go func() {
-		log.Println(">>>> Starting server")
+		log.Println(">>>>> Starting server")
 		if err := s.Serve(lis); err != nil {
 			log.Fatalf("failed to serve: %v", err)
 		}
-		log.Println(">>>> Started server")
+		log.Println(">>>>> Started server")
 	}()
 
 	// Wait for Control C

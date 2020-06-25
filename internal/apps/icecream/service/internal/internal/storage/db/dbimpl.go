@@ -6,6 +6,7 @@ import (
 	"github.com/Shreya1812/ben-and-jerrys/internal/commons"
 	"github.com/Shreya1812/ben-and-jerrys/internal/configs"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"golang.org/x/xerrors"
@@ -32,7 +33,7 @@ func New(config *configs.MongoDBConfig) (IceCreamDB, error) {
 func (i *iceCreamDBImpl) Create(ctx context.Context, d *data.IceCream) (*data.IceCream, error) {
 	c := i.db.Collection(collectionName)
 
-	_, err := i.GetById(ctx, d.ProductId)
+	_, err := i.GetByProductId(ctx, d.ProductId)
 
 	if err != nil {
 		if xerrors.Is(err, commons.ErrItemNotFound) {
@@ -66,7 +67,7 @@ func (i *iceCreamDBImpl) Update(ctx context.Context, d *data.IceCream) (*data.Ic
 	return result, nil
 }
 
-func (i *iceCreamDBImpl) Delete(ctx context.Context, pId string) (*data.IceCream, error) {
+func (i *iceCreamDBImpl) DeleteByProductId(ctx context.Context, pId string) (*data.IceCream, error) {
 	c := i.db.Collection(collectionName)
 
 	filter := bson.D{{"product_id", pId}}
@@ -83,7 +84,7 @@ func (i *iceCreamDBImpl) Delete(ctx context.Context, pId string) (*data.IceCream
 	return result, nil
 }
 
-func (i *iceCreamDBImpl) GetById(ctx context.Context, pId string) (*data.IceCream, error) {
+func (i *iceCreamDBImpl) GetByProductId(ctx context.Context, pId string) (*data.IceCream, error) {
 	c := i.db.Collection(collectionName)
 
 	filter := bson.D{{"product_id", pId}}
@@ -99,6 +100,40 @@ func (i *iceCreamDBImpl) GetById(ctx context.Context, pId string) (*data.IceCrea
 	}
 
 	return result, nil
+}
+
+func (i *iceCreamDBImpl) GetList(ctx context.Context, searchOptions *data.IceCreamSearchOptions) (*data.IceCreamListResult, error) {
+	c := i.db.Collection(collectionName)
+
+	filter := bson.M{}
+	if searchOptions.LastId != "" {
+		objectID, _ := primitive.ObjectIDFromHex(searchOptions.LastId)
+		filter = bson.M{"_id": bson.M{"$lt": objectID}}
+	}
+
+	opts := options.Find().SetSort(bson.D{{"_id", -1}}).SetLimit(searchOptions.Limit)
+
+	cursor, err := c.Find(ctx, filter, opts)
+
+	if err != nil {
+		return nil, err
+	}
+
+	var results []*data.IceCream
+	if err = cursor.All(context.TODO(), &results); err != nil {
+		return nil, err
+	}
+
+	lastId := ""
+
+	if len(results) > 0 {
+		lastId = results[len(results)-1].Id.Hex()
+	}
+
+	return &data.IceCreamListResult{
+		IceCreams: results,
+		LastId:    lastId,
+	}, nil
 }
 
 func (i *iceCreamDBImpl) Close() error {

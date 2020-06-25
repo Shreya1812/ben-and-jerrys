@@ -1,2 +1,5 @@
 # Output of the go coverage tool, specifically when used with IntelliJ
 *.idea
+
+# For macOS
+.DS_Store

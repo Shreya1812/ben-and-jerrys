@@ -6,10 +6,12 @@ import (
 	"io"
 )
 
+//go:generate mockgen -destination=mock_dataservice.go -package=dataservice -source=dataservice.go
 type IceCreamDataService interface {
 	Create(ctx context.Context, m *model.IceCream) (*model.IceCream, error)
 	Update(ctx context.Context, m *model.IceCream) (*model.IceCream, error)
-	DeleteById(ctx context.Context, pId string) (*model.IceCream, error)
-	GetById(ctx context.Context, pId string) (*model.IceCream, error)
+	DeleteByProductId(ctx context.Context, pId string) (*model.IceCream, error)
+	GetByProductId(ctx context.Context, pId string) (*model.IceCream, error)
+	GetList(ctx context.Context, options *model.IceCreamSearchOptions) (*model.IceCreamListResult, error)
 	io.Closer
 }

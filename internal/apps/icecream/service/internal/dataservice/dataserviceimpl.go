@@ -41,8 +41,8 @@ func (i *iceCreamDataServiceImpl) Update(ctx context.Context, m *model.IceCream)
 	return convertor.DataToModel(d), nil
 }
 
-func (i *iceCreamDataServiceImpl) DeleteById(ctx context.Context, pId string) (*model.IceCream, error) {
-	d, err := i.db.Delete(ctx, pId)
+func (i *iceCreamDataServiceImpl) DeleteByProductId(ctx context.Context, pId string) (*model.IceCream, error) {
+	d, err := i.db.DeleteByProductId(ctx, pId)
 
 	if err != nil {
 		return nil, err
@@ -50,14 +50,27 @@ func (i *iceCreamDataServiceImpl) DeleteById(ctx context.Context, pId string) (*
 	return convertor.DataToModel(d), nil
 }
 
-func (i *iceCreamDataServiceImpl) GetById(ctx context.Context, pId string) (*model.IceCream, error) {
-	d, err := i.db.GetById(ctx, pId)
+func (i *iceCreamDataServiceImpl) GetByProductId(ctx context.Context, pId string) (*model.IceCream, error) {
+	d, err := i.db.GetByProductId(ctx, pId)
 
 	if err != nil {
 		return nil, err
 	}
 
 	return convertor.DataToModel(d), nil
+}
+
+func (i *iceCreamDataServiceImpl) GetList(ctx context.Context, options *model.IceCreamSearchOptions) (*model.IceCreamListResult, error) {
+	d, err := i.db.GetList(ctx, convertor.OptionModelToData(options))
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.IceCreamListResult{
+		IceCreams: convertor.ListDataToListModel(d.IceCreams),
+		LastId:    d.LastId,
+	}, nil
 }
 
 func (i *iceCreamDataServiceImpl) Close() error {

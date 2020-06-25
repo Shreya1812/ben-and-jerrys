@@ -39,53 +39,6 @@ func (c *Factory) GetAuthInterceptor() interceptor.AuthInterceptor {
 	return c.authInterceptor
 }
 
-func getConfig() (*configs.Config, error) {
-
-	mongoHost := os.Getenv("MONGO_HOST")
-	if len(mongoHost) == 0 {
-		mongoHost = "localhost"
-	}
-
-	mongoPort := os.Getenv("MONGO_PORT")
-	if len(mongoPort) == 0 {
-		mongoPort = "27017"
-	}
-
-	mongoDBName := os.Getenv("MONGO_DB_NAME")
-	if len(mongoDBName) == 0 {
-		mongoDBName = "ben-and-jerrys"
-	}
-
-	jWTSecret := os.Getenv("JWT_SECRET")
-	if len(jWTSecret) == 0 {
-		jWTSecret = "JWT_SECRET"
-	}
-
-	jwtExpirationMinutesStr := os.Getenv("JWT_EXPIRY_MIN")
-	if len(jwtExpirationMinutesStr) == 0 {
-		jwtExpirationMinutesStr = "5"
-	}
-	jwtExpirationMinutes, err := strconv.Atoi(jwtExpirationMinutesStr)
-
-	if err != nil {
-		return nil, err
-	}
-
-	c := &configs.Config{
-		MongoDBConfig: &configs.MongoDBConfig{
-			Host:         mongoHost,
-			Port:         mongoPort,
-			DatabaseName: mongoDBName,
-		},
-		JWTConfig: &configs.JWTConfig{
-			JWTSecret:            jWTSecret,
-			JwtExpirationMinutes: jwtExpirationMinutes,
-		},
-	}
-
-	return c, nil
-}
-
 func InitFactory() (*Factory, error) {
 
 	c, err := getConfig()
@@ -140,4 +93,51 @@ func (c *Factory) DisposeController() error {
 	}
 
 	return nil
+}
+
+func getConfig() (*configs.Config, error) {
+
+	mongoHost := os.Getenv("MONGO_HOST")
+	if len(mongoHost) == 0 {
+		mongoHost = "localhost"
+	}
+
+	mongoPort := os.Getenv("MONGO_PORT")
+	if len(mongoPort) == 0 {
+		mongoPort = "27017"
+	}
+
+	mongoDBName := os.Getenv("MONGO_DB_NAME")
+	if len(mongoDBName) == 0 {
+		mongoDBName = "ben-and-jerrys"
+	}
+
+	jWTSecret := os.Getenv("JWT_SECRET")
+	if len(jWTSecret) == 0 {
+		jWTSecret = "JWT_SECRET"
+	}
+
+	jwtExpirationMinutesStr := os.Getenv("JWT_EXPIRY_MIN")
+	if len(jwtExpirationMinutesStr) == 0 {
+		jwtExpirationMinutesStr = "5"
+	}
+	jwtExpirationMinutes, err := strconv.Atoi(jwtExpirationMinutesStr)
+
+	if err != nil {
+		return nil, err
+	}
+
+	c := &configs.Config{
+		MongoDBConfig: &configs.MongoDBConfig{
+			Host:         mongoHost,
+			Port:         mongoPort,
+			DatabaseName: mongoDBName,
+		},
+		JWTConfig: &configs.JWTConfig{
+			JWTSecret:            jWTSecret,
+			JwtExpirationMinutes: jwtExpirationMinutes,
+		},
+	}
+
+	return c, nil
 }

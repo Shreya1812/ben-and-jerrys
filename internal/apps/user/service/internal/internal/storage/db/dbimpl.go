@@ -38,6 +38,7 @@ func (u *userDBImpl) Create(ctx context.Context, d *data.User) error {
 			if _, err := c.InsertOne(ctx, d); err != nil {
 				return err // Insertion Error
 			}
+			return nil
 		}
 		return err // Database error
 	}

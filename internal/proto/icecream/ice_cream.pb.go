@@ -336,16 +336,16 @@ func (x *UpdateResponse) GetIceCream() *IceCream {
 	return nil
 }
 
-type DeleteRequest struct {
+type DeleteByProductIdRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id string `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ProductId string `protobuf:"bytes,1,opt,name=ProductId,proto3" json:"ProductId,omitempty"`
 }
 
-func (x *DeleteRequest) Reset() {
-	*x = DeleteRequest{}
+func (x *DeleteByProductIdRequest) Reset() {
+	*x = DeleteByProductIdRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_api_proto_ice_cream_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -353,13 +353,13 @@ func (x *DeleteRequest) Reset() {
 	}
 }
 
-func (x *DeleteRequest) String() string {
+func (x *DeleteByProductIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteRequest) ProtoMessage() {}
+func (*DeleteByProductIdRequest) ProtoMessage() {}
 
-func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+func (x *DeleteByProductIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_api_proto_ice_cream_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -371,19 +371,19 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
-func (*DeleteRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteByProductIdRequest.ProtoReflect.Descriptor instead.
+func (*DeleteByProductIdRequest) Descriptor() ([]byte, []int) {
 	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *DeleteRequest) GetId() string {
+func (x *DeleteByProductIdRequest) GetProductId() string {
 	if x != nil {
-		return x.Id
+		return x.ProductId
 	}
 	return ""
 }
 
-type DeleteResponse struct {
+type DeleteByProductIdResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -391,8 +391,8 @@ type DeleteResponse struct {
 	IceCream *IceCream `protobuf:"bytes,1,opt,name=ice_cream,json=iceCream,proto3" json:"ice_cream,omitempty"`
 }
 
-func (x *DeleteResponse) Reset() {
-	*x = DeleteResponse{}
+func (x *DeleteByProductIdResponse) Reset() {
+	*x = DeleteByProductIdResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_api_proto_ice_cream_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -400,13 +400,13 @@ func (x *DeleteResponse) Reset() {
 	}
 }
 
-func (x *DeleteResponse) String() string {
+func (x *DeleteByProductIdResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteResponse) ProtoMessage() {}
+func (*DeleteByProductIdResponse) ProtoMessage() {}
 
-func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+func (x *DeleteByProductIdResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_api_proto_ice_cream_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -418,28 +418,28 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
-func (*DeleteResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteByProductIdResponse.ProtoReflect.Descriptor instead.
+func (*DeleteByProductIdResponse) Descriptor() ([]byte, []int) {
 	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *DeleteResponse) GetIceCream() *IceCream {
+func (x *DeleteByProductIdResponse) GetIceCream() *IceCream {
 	if x != nil {
 		return x.IceCream
 	}
 	return nil
 }
 
-type GetByIdRequest struct {
+type GetByProductIdRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id string `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ProductId string `protobuf:"bytes,1,opt,name=ProductId,proto3" json:"ProductId,omitempty"`
 }
 
-func (x *GetByIdRequest) Reset() {
-	*x = GetByIdRequest{}
+func (x *GetByProductIdRequest) Reset() {
+	*x = GetByProductIdRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_api_proto_ice_cream_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -447,13 +447,13 @@ func (x *GetByIdRequest) Reset() {
 	}
 }
 
-func (x *GetByIdRequest) String() string {
+func (x *GetByProductIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetByIdRequest) ProtoMessage() {}
+func (*GetByProductIdRequest) ProtoMessage() {}
 
-func (x *GetByIdRequest) ProtoReflect() protoreflect.Message {
+func (x *GetByProductIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_api_proto_ice_cream_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -465,19 +465,19 @@ func (x *GetByIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetByIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetByProductIdRequest.ProtoReflect.Descriptor instead.
+func (*GetByProductIdRequest) Descriptor() ([]byte, []int) {
 	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetByIdRequest) GetId() string {
+func (x *GetByProductIdRequest) GetProductId() string {
 	if x != nil {
-		return x.Id
+		return x.ProductId
 	}
 	return ""
 }
 
-type GetByIdResponse struct {
+type GetByProductIdResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -485,8 +485,8 @@ type GetByIdResponse struct {
 	IceCream *IceCream `protobuf:"bytes,1,opt,name=ice_cream,json=iceCream,proto3" json:"ice_cream,omitempty"`
 }
 
-func (x *GetByIdResponse) Reset() {
-	*x = GetByIdResponse{}
+func (x *GetByProductIdResponse) Reset() {
+	*x = GetByProductIdResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_api_proto_ice_cream_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -494,13 +494,13 @@ func (x *GetByIdResponse) Reset() {
 	}
 }
 
-func (x *GetByIdResponse) String() string {
+func (x *GetByProductIdResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetByIdResponse) ProtoMessage() {}
+func (*GetByProductIdResponse) ProtoMessage() {}
 
-func (x *GetByIdResponse) ProtoReflect() protoreflect.Message {
+func (x *GetByProductIdResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_api_proto_ice_cream_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -512,16 +512,173 @@ func (x *GetByIdResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetByIdResponse.ProtoReflect.Descriptor instead.
-func (*GetByIdResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetByProductIdResponse.ProtoReflect.Descriptor instead.
+func (*GetByProductIdResponse) Descriptor() ([]byte, []int) {
 	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *GetByIdResponse) GetIceCream() *IceCream {
+func (x *GetByProductIdResponse) GetIceCream() *IceCream {
 	if x != nil {
 		return x.IceCream
 	}
 	return nil
+}
+
+type PaginationContext struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	LastId string `protobuf:"bytes,1,opt,name=last_id,json=lastId,proto3" json:"last_id,omitempty"`
+}
+
+func (x *PaginationContext) Reset() {
+	*x = PaginationContext{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_ice_cream_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PaginationContext) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PaginationContext) ProtoMessage() {}
+
+func (x *PaginationContext) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_ice_cream_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PaginationContext.ProtoReflect.Descriptor instead.
+func (*PaginationContext) Descriptor() ([]byte, []int) {
+	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *PaginationContext) GetLastId() string {
+	if x != nil {
+		return x.LastId
+	}
+	return ""
+}
+
+type ListRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PaginationContext string `protobuf:"bytes,1,opt,name=pagination_context,json=paginationContext,proto3" json:"pagination_context,omitempty"`
+	Limit             int64  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+}
+
+func (x *ListRequest) Reset() {
+	*x = ListRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_ice_cream_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRequest) ProtoMessage() {}
+
+func (x *ListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_ice_cream_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
+func (*ListRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ListRequest) GetPaginationContext() string {
+	if x != nil {
+		return x.PaginationContext
+	}
+	return ""
+}
+
+func (x *ListRequest) GetLimit() int64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IceCreams         []*IceCream `protobuf:"bytes,1,rep,name=ice_creams,json=iceCreams,proto3" json:"ice_creams,omitempty"`
+	PaginationContext string      `protobuf:"bytes,2,opt,name=pagination_context,json=paginationContext,proto3" json:"pagination_context,omitempty"`
+}
+
+func (x *ListResponse) Reset() {
+	*x = ListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_ice_cream_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListResponse) ProtoMessage() {}
+
+func (x *ListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_ice_cream_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
+func (*ListResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_ice_cream_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ListResponse) GetIceCreams() []*IceCream {
+	if x != nil {
+		return x.IceCreams
+	}
+	return nil
+}
+
+func (x *ListResponse) GetPaginationContext() string {
+	if x != nil {
+		return x.PaginationContext
+	}
+	return ""
 }
 
 var File_api_proto_ice_cream_proto protoreflect.FileDescriptor
@@ -567,39 +724,65 @@ var file_api_proto_ice_cream_proto_rawDesc = []byte{
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x09, 0x69, 0x63, 0x65, 0x5f, 0x63,
 	0x72, 0x65, 0x61, 0x6d, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x69, 0x63, 0x65,
 	0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x49, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x08,
-	0x69, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x22, 0x1f, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x64, 0x22, 0x41, 0x0a, 0x0e, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x09, 0x69,
-	0x63, 0x65, 0x5f, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12,
-	0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x49, 0x63, 0x65, 0x43, 0x72, 0x65,
-	0x61, 0x6d, 0x52, 0x08, 0x69, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x22, 0x20, 0x0a, 0x0e,
-	0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
-	0x0a, 0x02, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x64, 0x22, 0x42,
-	0x0a, 0x0f, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x69, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x22, 0x38, 0x0a, 0x18, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x42, 0x79, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x49, 0x64, 0x22, 0x4c, 0x0a, 0x19, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x42, 0x79, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x2f, 0x0a, 0x09, 0x69, 0x63, 0x65, 0x5f, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x12, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x49, 0x63,
+	0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x08, 0x69, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d,
+	0x22, 0x35, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x42, 0x79, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x50, 0x72, 0x6f,
+	0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x22, 0x49, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x42, 0x79,
+	0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x2f, 0x0a, 0x09, 0x69, 0x63, 0x65, 0x5f, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e,
 	0x49, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x08, 0x69, 0x63, 0x65, 0x43, 0x72, 0x65,
-	0x61, 0x6d, 0x32, 0x8c, 0x02, 0x0a, 0x0b, 0x49, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x41,
-	0x70, 0x69, 0x12, 0x3d, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x69,
-	0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d,
-	0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x00, 0x12, 0x3d, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x69, 0x63,
-	0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
-	0x12, 0x3d, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x69, 0x63, 0x65,
-	0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x40, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x12, 0x18, 0x2e, 0x69, 0x63, 0x65,
-	0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e,
-	0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x00, 0x42, 0x16, 0x5a, 0x14, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x3b, 0x69, 0x63,
-	0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x5f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x61, 0x6d, 0x22, 0x2c, 0x0a, 0x11, 0x50, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x6c, 0x61, 0x73, 0x74, 0x5f,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6c, 0x61, 0x73, 0x74, 0x49, 0x64,
+	0x22, 0x52, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x2d, 0x0a, 0x12, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x63, 0x6f,
+	0x6e, 0x74, 0x65, 0x78, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x11, 0x70, 0x61, 0x67,
+	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x12, 0x14,
+	0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x6c,
+	0x69, 0x6d, 0x69, 0x74, 0x22, 0x70, 0x0a, 0x0c, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x31, 0x0a, 0x0a, 0x69, 0x63, 0x65, 0x5f, 0x63, 0x72, 0x65, 0x61,
+	0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72,
+	0x65, 0x61, 0x6d, 0x2e, 0x49, 0x63, 0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x09, 0x69, 0x63,
+	0x65, 0x43, 0x72, 0x65, 0x61, 0x6d, 0x73, 0x12, 0x2d, 0x0a, 0x12, 0x70, 0x61, 0x67, 0x69, 0x6e,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x11, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43,
+	0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x32, 0xfe, 0x02, 0x0a, 0x0b, 0x49, 0x63, 0x65, 0x43, 0x72,
+	0x65, 0x61, 0x6d, 0x41, 0x70, 0x69, 0x12, 0x3d, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x12, 0x17, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x69, 0x63, 0x65, 0x63,
+	0x72, 0x65, 0x61, 0x6d, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12,
+	0x17, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72,
+	0x65, 0x61, 0x6d, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x5e, 0x0a, 0x11, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x42, 0x79,
+	0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x12, 0x22, 0x2e, 0x69, 0x63, 0x65, 0x63,
+	0x72, 0x65, 0x61, 0x6d, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x42, 0x79, 0x50, 0x72, 0x6f,
+	0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e,
+	0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x42,
+	0x79, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x55, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x50, 0x72, 0x6f,
+	0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x12, 0x1f, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61,
+	0x6d, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65,
+	0x61, 0x6d, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49,
+	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x3a, 0x0a, 0x07, 0x47,
+	0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x15, 0x2e, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61,
+	0x6d, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e,
+	0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x16, 0x5a, 0x14, 0x69, 0x63, 0x65, 0x63, 0x72,
+	0x65, 0x61, 0x6d, 0x3b, 0x69, 0x63, 0x65, 0x63, 0x72, 0x65, 0x61, 0x6d, 0x5f, 0x70, 0x62, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -614,38 +797,44 @@ func file_api_proto_ice_cream_proto_rawDescGZIP() []byte {
 	return file_api_proto_ice_cream_proto_rawDescData
 }
 
-var file_api_proto_ice_cream_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_api_proto_ice_cream_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_api_proto_ice_cream_proto_goTypes = []interface{}{
-	(*IceCream)(nil),        // 0: icecream.IceCream
-	(*CreateRequest)(nil),   // 1: icecream.CreateRequest
-	(*CreateResponse)(nil),  // 2: icecream.CreateResponse
-	(*UpdateRequest)(nil),   // 3: icecream.UpdateRequest
-	(*UpdateResponse)(nil),  // 4: icecream.UpdateResponse
-	(*DeleteRequest)(nil),   // 5: icecream.DeleteRequest
-	(*DeleteResponse)(nil),  // 6: icecream.DeleteResponse
-	(*GetByIdRequest)(nil),  // 7: icecream.GetByIdRequest
-	(*GetByIdResponse)(nil), // 8: icecream.GetByIdResponse
+	(*IceCream)(nil),                  // 0: icecream.IceCream
+	(*CreateRequest)(nil),             // 1: icecream.CreateRequest
+	(*CreateResponse)(nil),            // 2: icecream.CreateResponse
+	(*UpdateRequest)(nil),             // 3: icecream.UpdateRequest
+	(*UpdateResponse)(nil),            // 4: icecream.UpdateResponse
+	(*DeleteByProductIdRequest)(nil),  // 5: icecream.DeleteByProductIdRequest
+	(*DeleteByProductIdResponse)(nil), // 6: icecream.DeleteByProductIdResponse
+	(*GetByProductIdRequest)(nil),     // 7: icecream.GetByProductIdRequest
+	(*GetByProductIdResponse)(nil),    // 8: icecream.GetByProductIdResponse
+	(*PaginationContext)(nil),         // 9: icecream.PaginationContext
+	(*ListRequest)(nil),               // 10: icecream.ListRequest
+	(*ListResponse)(nil),              // 11: icecream.ListResponse
 }
 var file_api_proto_ice_cream_proto_depIdxs = []int32{
 	0,  // 0: icecream.CreateRequest.ice_cream:type_name -> icecream.IceCream
 	0,  // 1: icecream.CreateResponse.ice_cream:type_name -> icecream.IceCream
 	0,  // 2: icecream.UpdateRequest.ice_cream:type_name -> icecream.IceCream
 	0,  // 3: icecream.UpdateResponse.ice_cream:type_name -> icecream.IceCream
-	0,  // 4: icecream.DeleteResponse.ice_cream:type_name -> icecream.IceCream
-	0,  // 5: icecream.GetByIdResponse.ice_cream:type_name -> icecream.IceCream
-	1,  // 6: icecream.IceCreamApi.Create:input_type -> icecream.CreateRequest
-	3,  // 7: icecream.IceCreamApi.Update:input_type -> icecream.UpdateRequest
-	5,  // 8: icecream.IceCreamApi.Delete:input_type -> icecream.DeleteRequest
-	7,  // 9: icecream.IceCreamApi.GetById:input_type -> icecream.GetByIdRequest
-	2,  // 10: icecream.IceCreamApi.Create:output_type -> icecream.CreateResponse
-	4,  // 11: icecream.IceCreamApi.Update:output_type -> icecream.UpdateResponse
-	6,  // 12: icecream.IceCreamApi.Delete:output_type -> icecream.DeleteResponse
-	8,  // 13: icecream.IceCreamApi.GetById:output_type -> icecream.GetByIdResponse
-	10, // [10:14] is the sub-list for method output_type
-	6,  // [6:10] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	0,  // 4: icecream.DeleteByProductIdResponse.ice_cream:type_name -> icecream.IceCream
+	0,  // 5: icecream.GetByProductIdResponse.ice_cream:type_name -> icecream.IceCream
+	0,  // 6: icecream.ListResponse.ice_creams:type_name -> icecream.IceCream
+	1,  // 7: icecream.IceCreamApi.Create:input_type -> icecream.CreateRequest
+	3,  // 8: icecream.IceCreamApi.Update:input_type -> icecream.UpdateRequest
+	5,  // 9: icecream.IceCreamApi.DeleteByProductId:input_type -> icecream.DeleteByProductIdRequest
+	7,  // 10: icecream.IceCreamApi.GetByProductId:input_type -> icecream.GetByProductIdRequest
+	10, // 11: icecream.IceCreamApi.GetList:input_type -> icecream.ListRequest
+	2,  // 12: icecream.IceCreamApi.Create:output_type -> icecream.CreateResponse
+	4,  // 13: icecream.IceCreamApi.Update:output_type -> icecream.UpdateResponse
+	6,  // 14: icecream.IceCreamApi.DeleteByProductId:output_type -> icecream.DeleteByProductIdResponse
+	8,  // 15: icecream.IceCreamApi.GetByProductId:output_type -> icecream.GetByProductIdResponse
+	11, // 16: icecream.IceCreamApi.GetList:output_type -> icecream.ListResponse
+	12, // [12:17] is the sub-list for method output_type
+	7,  // [7:12] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_api_proto_ice_cream_proto_init() }
@@ -715,7 +904,7 @@ func file_api_proto_ice_cream_proto_init() {
 			}
 		}
 		file_api_proto_ice_cream_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteRequest); i {
+			switch v := v.(*DeleteByProductIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -727,7 +916,7 @@ func file_api_proto_ice_cream_proto_init() {
 			}
 		}
 		file_api_proto_ice_cream_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteResponse); i {
+			switch v := v.(*DeleteByProductIdResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -739,7 +928,7 @@ func file_api_proto_ice_cream_proto_init() {
 			}
 		}
 		file_api_proto_ice_cream_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetByIdRequest); i {
+			switch v := v.(*GetByProductIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -751,7 +940,43 @@ func file_api_proto_ice_cream_proto_init() {
 			}
 		}
 		file_api_proto_ice_cream_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetByIdResponse); i {
+			switch v := v.(*GetByProductIdResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_ice_cream_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PaginationContext); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_ice_cream_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_ice_cream_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -769,7 +994,7 @@ func file_api_proto_ice_cream_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_proto_ice_cream_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -797,8 +1022,9 @@ const _ = grpc.SupportPackageIsVersion6
 type IceCreamApiClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
-	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	GetById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetByIdResponse, error)
+	DeleteByProductId(ctx context.Context, in *DeleteByProductIdRequest, opts ...grpc.CallOption) (*DeleteByProductIdResponse, error)
+	GetByProductId(ctx context.Context, in *GetByProductIdRequest, opts ...grpc.CallOption) (*GetByProductIdResponse, error)
+	GetList(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 }
 
 type iceCreamApiClient struct {
@@ -827,18 +1053,27 @@ func (c *iceCreamApiClient) Update(ctx context.Context, in *UpdateRequest, opts 
 	return out, nil
 }
 
-func (c *iceCreamApiClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
-	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, "/icecream.IceCreamApi/Delete", in, out, opts...)
+func (c *iceCreamApiClient) DeleteByProductId(ctx context.Context, in *DeleteByProductIdRequest, opts ...grpc.CallOption) (*DeleteByProductIdResponse, error) {
+	out := new(DeleteByProductIdResponse)
+	err := c.cc.Invoke(ctx, "/icecream.IceCreamApi/DeleteByProductId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *iceCreamApiClient) GetById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetByIdResponse, error) {
-	out := new(GetByIdResponse)
-	err := c.cc.Invoke(ctx, "/icecream.IceCreamApi/GetById", in, out, opts...)
+func (c *iceCreamApiClient) GetByProductId(ctx context.Context, in *GetByProductIdRequest, opts ...grpc.CallOption) (*GetByProductIdResponse, error) {
+	out := new(GetByProductIdResponse)
+	err := c.cc.Invoke(ctx, "/icecream.IceCreamApi/GetByProductId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *iceCreamApiClient) GetList(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+	out := new(ListResponse)
+	err := c.cc.Invoke(ctx, "/icecream.IceCreamApi/GetList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -849,8 +1084,9 @@ func (c *iceCreamApiClient) GetById(ctx context.Context, in *GetByIdRequest, opt
 type IceCreamApiServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
-	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	GetById(context.Context, *GetByIdRequest) (*GetByIdResponse, error)
+	DeleteByProductId(context.Context, *DeleteByProductIdRequest) (*DeleteByProductIdResponse, error)
+	GetByProductId(context.Context, *GetByProductIdRequest) (*GetByProductIdResponse, error)
+	GetList(context.Context, *ListRequest) (*ListResponse, error)
 }
 
 // UnimplementedIceCreamApiServer can be embedded to have forward compatible implementations.
@@ -863,11 +1099,14 @@ func (*UnimplementedIceCreamApiServer) Create(context.Context, *CreateRequest) (
 func (*UnimplementedIceCreamApiServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (*UnimplementedIceCreamApiServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+func (*UnimplementedIceCreamApiServer) DeleteByProductId(context.Context, *DeleteByProductIdRequest) (*DeleteByProductIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteByProductId not implemented")
 }
-func (*UnimplementedIceCreamApiServer) GetById(context.Context, *GetByIdRequest) (*GetByIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetById not implemented")
+func (*UnimplementedIceCreamApiServer) GetByProductId(context.Context, *GetByProductIdRequest) (*GetByProductIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetByProductId not implemented")
+}
+func (*UnimplementedIceCreamApiServer) GetList(context.Context, *ListRequest) (*ListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetList not implemented")
 }
 
 func RegisterIceCreamApiServer(s *grpc.Server, srv IceCreamApiServer) {
@@ -910,38 +1149,56 @@ func _IceCreamApi_Update_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _IceCreamApi_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRequest)
+func _IceCreamApi_DeleteByProductId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteByProductIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(IceCreamApiServer).Delete(ctx, in)
+		return srv.(IceCreamApiServer).DeleteByProductId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/icecream.IceCreamApi/Delete",
+		FullMethod: "/icecream.IceCreamApi/DeleteByProductId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IceCreamApiServer).Delete(ctx, req.(*DeleteRequest))
+		return srv.(IceCreamApiServer).DeleteByProductId(ctx, req.(*DeleteByProductIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _IceCreamApi_GetById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetByIdRequest)
+func _IceCreamApi_GetByProductId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByProductIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(IceCreamApiServer).GetById(ctx, in)
+		return srv.(IceCreamApiServer).GetByProductId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/icecream.IceCreamApi/GetById",
+		FullMethod: "/icecream.IceCreamApi/GetByProductId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IceCreamApiServer).GetById(ctx, req.(*GetByIdRequest))
+		return srv.(IceCreamApiServer).GetByProductId(ctx, req.(*GetByProductIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IceCreamApi_GetList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IceCreamApiServer).GetList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/icecream.IceCreamApi/GetList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IceCreamApiServer).GetList(ctx, req.(*ListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -959,12 +1216,16 @@ var _IceCreamApi_serviceDesc = grpc.ServiceDesc{
 			Handler:    _IceCreamApi_Update_Handler,
 		},
 		{
-			MethodName: "Delete",
-			Handler:    _IceCreamApi_Delete_Handler,
+			MethodName: "DeleteByProductId",
+			Handler:    _IceCreamApi_DeleteByProductId_Handler,
 		},
 		{
-			MethodName: "GetById",
-			Handler:    _IceCreamApi_GetById_Handler,
+			MethodName: "GetByProductId",
+			Handler:    _IceCreamApi_GetByProductId_Handler,
+		},
+		{
+			MethodName: "GetList",
+			Handler:    _IceCreamApi_GetList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

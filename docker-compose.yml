@@ -1,0 +1,45 @@
+version: '3'
+services:
+  app-mongodb:
+    image: mongo:latest
+    container_name: app_mongo_db
+    expose:
+      - 27017
+    restart: unless-stopped
+
+  mongo-seed:
+    build: deployments/mongoseed
+    environment:
+    - MONGO_HOST=${MONGO_HOST}
+    - MONGO_PORT=${MONGO_PORT}
+    - MONGO_DB_NAME=${MONGO_DB_NAME}
+    expose:
+    - 27017
+    depends_on:
+      - app-mongodb
+
+  grpcui:
+    build: deployments/grpcui
+    environment:
+    - APP_HOST=${APP_HOST}
+    - APP_PORT=${APP_PORT}
+    depends_on:
+    - app
+    ports:
+    - "0.0.0.0:9999:9999"
+    restart: unless-stopped
+
+  app:
+    container_name: app
+    build: .
+    ports:
+    - 9000:9000
+    restart: on-failure
+    environment:
+    - MONGO_HOST=${MONGO_HOST}
+    - MONGO_PORT=${MONGO_PORT}
+    - MONGO_DB_NAME=${MONGO_DB_NAME}
+    - JWT_SECRET=${JWT_SECRET}
+    - JWT_EXPIRY_MIN=${JWT_EXPIRY_MIN}
+    depends_on:
+    - app-mongodb

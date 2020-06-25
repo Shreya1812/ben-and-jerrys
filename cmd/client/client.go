@@ -20,7 +20,7 @@ var user2 = &user_pb.User{
 }
 
 func main() {
-	unauthorizedCC, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	unauthorizedCC, err := grpc.Dial("localhost:9000", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Could not connect: %v", err)
 	}
@@ -59,7 +59,7 @@ func main() {
 
 func newAuthorizedConn(token string) (*grpc.ClientConn, error) {
 	i := interceptor.New(token)
-	return grpc.Dial("localhost:50051", grpc.WithInsecure(), grpc.WithUnaryInterceptor(i.Unary()))
+	return grpc.Dial("localhost:9000", grpc.WithInsecure(), grpc.WithUnaryInterceptor(i.Unary()))
 }
 
 func login(cc *grpc.ClientConn, user *user_pb.User) (string, error) {
@@ -146,8 +146,8 @@ func iceCreamClient(cc *grpc.ClientConn) {
 	log.Println(res2)
 
 	log.Println("Getting IceCream:")
-	res3, err := client.GetById(context.Background(), &icecream_pb.GetByIdRequest{
-		Id: "10",
+	res3, err := client.GetByProductId(context.Background(), &icecream_pb.GetByProductIdRequest{
+		ProductId: "10",
 	})
 	if err != nil {
 		log.Println(err)
@@ -155,8 +155,8 @@ func iceCreamClient(cc *grpc.ClientConn) {
 	log.Println(res3)
 
 	log.Println("Deleting IceCream:")
-	res4, err := client.Delete(context.Background(), &icecream_pb.DeleteRequest{
-		Id: "10",
+	res4, err := client.DeleteByProductId(context.Background(), &icecream_pb.DeleteByProductIdRequest{
+		ProductId: "10",
 	})
 	if err != nil {
 		log.Println(err)
@@ -164,13 +164,33 @@ func iceCreamClient(cc *grpc.ClientConn) {
 	log.Println(res4)
 
 	log.Println("Getting Deleted IceCream:")
-	res5, err := client.GetById(context.Background(), &icecream_pb.GetByIdRequest{
-		Id: "10",
+	res5, err := client.GetByProductId(context.Background(), &icecream_pb.GetByProductIdRequest{
+		ProductId: "10",
 	})
 	if err != nil {
 		log.Println(err)
 	}
 	log.Println(res5)
+
+	log.Println("Getting List of IceCreams")
+	res6, err := client.GetList(context.Background(), &icecream_pb.ListRequest{
+		PaginationContext: "",
+		Limit:             2,
+	})
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println(res6)
+		log.Println("Getting Next List of IceCreams")
+		res7, err := client.GetList(context.Background(), &icecream_pb.ListRequest{
+			PaginationContext: res6.PaginationContext,
+			Limit:             2,
+		})
+		if err != nil {
+			log.Println(err)
+		}
+		log.Println(res7)
+	}
 }
 
 func user1Client(cc *grpc.ClientConn) {

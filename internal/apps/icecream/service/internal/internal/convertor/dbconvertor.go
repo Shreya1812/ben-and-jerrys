@@ -34,3 +34,20 @@ func DataToModel(d *data.IceCream) *model.IceCream {
 		DietaryCertifications: d.DietaryCertifications,
 	}
 }
+
+func ListDataToListModel(d []*data.IceCream) []*model.IceCream {
+	result := make([]*model.IceCream, 0, len(d))
+
+	for _, ic := range d {
+		m := DataToModel(ic)
+		result = append(result, m)
+	}
+	return result
+}
+
+func OptionModelToData(m *model.IceCreamSearchOptions) *data.IceCreamSearchOptions {
+	return &data.IceCreamSearchOptions{
+		LastId: m.LastId,
+		Limit:  m.Limit,
+	}
+}
