@@ -72,4 +72,9 @@ Controller ──→ Service ──→ DataService ──├──→ Cache
 
 
 ## Implementation Details
-- 
+
+**Database**
+- MongoDB is used for back-end. 
+- The ice-cream data is going to be read heavy.
+- Create and update operations on ice-cream data will be very rare.  
+
